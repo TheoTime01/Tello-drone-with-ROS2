@@ -25,7 +25,6 @@
     - [Follower Mode](#follower-mode)
     - [Cinema Mode](#cinema-mode)
   - [Safety Precautions](#safety-precautions)
-  - [Conclusion](#conclusion)
 
 
 ## Introduction
@@ -152,12 +151,3 @@ The objective is to set up and implement various scenarios on the Tello EDU dron
 
 - **Battery Management**
   - Ensure the drone’s battery is fully charged before each session.
-
-
-## Conclusion
-
-By completing this project, I’ll enhance my understanding of ROS2 and gain practical experience in robotics programming. I’ll also develop valuable skills in integrating software with hardware, real-time processing, and autonomous system design.
-
----
-
-Feel free to contribute to this project by submitting issues or pull requests. Your feedback and improvements are highly appreciated!
