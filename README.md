@@ -23,10 +23,8 @@
     - [Manual Control with Joystick](#manual-control-with-joystick)
     - [QR Code Triggered Behaviors](#qr-code-triggered-behaviors)
     - [Follower Mode](#follower-mode)
-    - [Cinema Mode](#cinema-mode)
+    - [Monitoring Mode](#monitoring-mode)
   - [Safety Precautions](#safety-precautions)
-    - [Scenarios to Implement](#scenarios-to-implement-1)
-    - [Behavioral Modes](#behavioral-modes-1)
 
 
 ## Introduction
@@ -170,7 +168,7 @@ The following QR codes are available to trigger different scenarios:
 ### Follower Mode
 
 
-### Cinema Mode
+### Monitoring Mode
 
 
 ## Safety Precautions
@@ -181,25 +179,3 @@ The following QR codes are available to trigger different scenarios:
 
 - **Battery Management**
   - Ensure the drone’s battery is fully charged before each session.
-
-
-
-
-### Scenarios to Implement
-
-1. **Manual Control with Joystick**
-   - Control the drone manually using a joystick connected to your PC for precise maneuvers in any direction.
-
-2. **QR Code Triggered Behaviors**
-   - Program the drone to execute predefined actions when a QR code is detected, such as starting, stopping, or triggering other scenarios like surveillance or item drops.
-
-### Behavioral Modes
-
-- **Follower Mode**
-  - The drone will follow the detected QR code, adjusting its position in real-time to maintain a relative distance or specific alignment to the code.
-
-- **Monitoring Mode**
-  - The drone will turn on itself continuously to simulate a monitoring scenario, capturing its surroundings without moving away from its location.
-
-- **Manual Mode**
-  - Full manual control of the drone using a joystick, allowing for precise movements and adjustments during flight.
