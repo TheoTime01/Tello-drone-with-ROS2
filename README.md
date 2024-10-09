@@ -25,6 +25,8 @@
     - [Follower Mode](#follower-mode)
     - [Cinema Mode](#cinema-mode)
   - [Safety Precautions](#safety-precautions)
+    - [Scenarios to Implement](#scenarios-to-implement-1)
+    - [Behavioral Modes](#behavioral-modes-1)
 
 
 ## Introduction
@@ -81,13 +83,13 @@ The objective is to set up and implement various scenarios on the Tello EDU dron
 ### Behavioral Modes
 
 - **Follower Mode**
-  - The drone will follow the movements of a QR code, adjusting its position in real-time.
+  - The drone will follow the detected QR code, adjusting its position in real-time to maintain a relative distance or specific alignment to the code.
 
-- **Cinema Mode**
-  - Upon reading a QR code, the drone will initiate a predefined automatic movement sequence, ideal for cinematic shots.
+- **Monitoring Mode**
+  - The drone will turn on itself continuously to simulate a monitoring scenario, capturing its surroundings without moving away from its location.
 
 - **Manual Mode**
-  - I will directly control the drone’s flight using a joystick for precise maneuvering.
+  - Full manual control of the drone using a xbox joystick.
 
 ## Getting Started
 
@@ -96,7 +98,7 @@ The objective is to set up and implement various scenarios on the Tello EDU dron
 - **Hardware Requirements**
   - DJI Tello EDU drone
   - PC with Wi-Fi capability
-  - USB joystick controller 
+  - XBOX joystick controller
 
 - **Software Requirements**
   - ROS2 Humble
@@ -133,6 +135,34 @@ The objective is to set up and implement various scenarios on the Tello EDU dron
 
 - **QR Code Detection**
 
+This package allows the control of a drone based on the detection of specific QR codes. The drone performs different actions depending on the QR code it detects. 
+
+The following QR codes are available to trigger different scenarios:
+
+- **start**: Start the *travelling_mode*. In this case, the drone starts moving to the right at a slow speed.
+
+![img](/images/start.png)
+
+- **stop**: Stops the drone immediately, regardless of the current scenario.
+
+![img](/images/stop.png)
+
+- **finish**: Ends the *travelling_mode* and stops the drone.
+  
+![img](/images/finish.png)
+
+- **drop_area**: Nothing implemented.
+  
+![img](/images/drop_area.png)
+
+- **blue_block**: Nothing implemented.
+  
+![img](/images/blue_block.png)
+
+- **red_block**: Nothing implemented.
+  
+![img](/images/red_block.png)
+
 
 - **Programming Behaviors**
 
@@ -151,3 +181,25 @@ The objective is to set up and implement various scenarios on the Tello EDU dron
 
 - **Battery Management**
   - Ensure the drone’s battery is fully charged before each session.
+
+
+
+
+### Scenarios to Implement
+
+1. **Manual Control with Joystick**
+   - Control the drone manually using a joystick connected to your PC for precise maneuvers in any direction.
+
+2. **QR Code Triggered Behaviors**
+   - Program the drone to execute predefined actions when a QR code is detected, such as starting, stopping, or triggering other scenarios like surveillance or item drops.
+
+### Behavioral Modes
+
+- **Follower Mode**
+  - The drone will follow the detected QR code, adjusting its position in real-time to maintain a relative distance or specific alignment to the code.
+
+- **Monitoring Mode**
+  - The drone will turn on itself continuously to simulate a monitoring scenario, capturing its surroundings without moving away from its location.
+
+- **Manual Mode**
+  - Full manual control of the drone using a joystick, allowing for precise movements and adjustments during flight.
