@@ -24,6 +24,11 @@ setup(
     entry_points={
         'console_scripts': [
         	'control = drone_control.control:main',
+        	'qr_code_follower = drone_control.qr_code_follower:main',
+        	'tello_behavior = drone_control.tello_behavior:main',
+        	'control_safe = drone_control.control_plus_secure:main',
+        	'travelling = drone_control.travelling:main',
+        	'monitoring_mode = drone_control.monitoring_mode:main',
         ],
     },
 )

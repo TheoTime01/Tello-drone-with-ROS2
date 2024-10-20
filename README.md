@@ -4,13 +4,20 @@
 
 ![ROS2](https://img.shields.io/badge/ros2-%230A0FF9.svg?style=for-the-badge&logo=ros&logoColor=white)
 
+## Authors
+
+- [Théotime PERRICHET](https://github.com/TheoTime01)
+- Tom RECHE
+- [Arnaud SIBENALER](https://github.com/ArnaudS-CPE)
 
 ## Table of Contents
 
 - [Tello Drone with ROS2](#tello-drone-with-ros2)
+  - [Authors](#authors)
   - [Table of Contents](#table-of-contents)
   - [Introduction](#introduction)
   - [Objectives](#objectives)
+    - [Demo Video](#demo-video)
   - [Presentation of the Drone](#presentation-of-the-drone)
     - [Trajectory Control](#trajectory-control)
   - [Mission](#mission)
@@ -19,12 +26,15 @@
   - [Getting Started](#getting-started)
     - [Prerequisites](#prerequisites)
     - [Installation Steps](#installation-steps)
-  - [Implementation Guide](#implementation-guide)
-    - [Manual Control with Joystick](#manual-control-with-joystick)
+    - [1. Create the ROS2 Workspace](#1-create-the-ros2-workspace)
+    - [2. Clone the Project Repository](#2-clone-the-project-repository)
+    - [3. Install ROS Dependencies](#3-install-ros-dependencies)
+    - [4. Install Python Dependencies](#4-install-python-dependencies)
+    - [5. Build the Project](#5-build-the-project)
+    - [6. Launch the Drone Controller](#6-launch-the-drone-controller)
     - [QR Code Triggered Behaviors](#qr-code-triggered-behaviors)
-    - [Follower Mode](#follower-mode)
-    - [Monitoring Mode](#monitoring-mode)
-  - [Safety Precautions](#safety-precautions)
+  - [⚠️Safety Precautions](#️safety-precautions)
+  - [To Improve](#to-improve)
 
 
 ## Introduction
@@ -36,6 +46,11 @@ Welcome to my **Tello Drone with ROS2** project! In this master project, I’ll 
 - **Drone Integration**
 - **Implement Control Scenarios**
 - **Behavioral Programming**
+
+
+### Demo Video
+
+[![Watch the video](/images/drone%20miniature.png)](https://youtu.be/YJ8u02rbd7Y)
 
 ## Presentation of the Drone
 
@@ -89,6 +104,9 @@ The objective is to set up and implement various scenarios on the Tello EDU dron
 - **Manual Mode**
   - Full manual control of the drone using a xbox joystick.
 
+- **Travelling Mode**
+  - When the drone detects the QR code `start`, it will move sideways until it detects the QR code `finish`.
+
 ## Getting Started
 
 ### Prerequisites
@@ -106,28 +124,78 @@ The objective is to set up and implement various scenarios on the Tello EDU dron
 
 ### Installation Steps
 
-1. **Install ROS2**
-   - Follow the official ROS2 [installation guide](https://docs.ros.org/en/foxy/Installation.html) for my operating system.
+### 1. Create the ROS2 Workspace
 
-2. **Set Up the Tello ROS2 Package**
+If you don't already have a ROS2 workspace, start by creating one.
 
-3. **Install Dependencies**
+```bash
+# Create a folder for the workspace
+mkdir -p ~/ros2_ws/src
 
+# Go to the directory
+cd ~/ros2_ws
 
-4. **Connect to the Drone**
-   - Power on the Tello EDU drone.
-   - Connect my PC to the drone’s Wi-Fi network.
-   - Check the connection by pinging the drone’s IP address.
+# Build the workspace
+colcon build --symlink-install
 
-## Implementation Guide
+# Ensure the environment is properly set up
+source install/setup.bash
+```
 
-### Manual Control with Joystick
+### 2. Clone the Project Repository
 
-- **Configure the Joystick**
+Clone your project repository into the `src` folder of the workspace.
 
+```bash
+# Go to the src folder
+cd ~/ros2_ws/src
 
-- **Develop ROS2 Nodes**
+# Clone the repository
+git clone https://gitlab.com/cpelyon/rob/5eti-2024-2025/iros/S1_G2_Perrichet_Reche_Sibenaler.git
 
+# Return to the workspace
+cd ~/ros2_ws
+```
+
+### 3. Install ROS Dependencies
+
+Install the ROS dependencies, including the packages needed to handle the controller and QR codes.
+
+```bash
+# Install the 'ros-humble-joy' package for the controller
+sudo apt install ros-humble-joy
+
+# Install the 'libzbar-dev' library for reading QR codes
+sudo apt install libzbar-dev
+```
+
+### 4. Install Python Dependencies
+
+```bash
+# Install Python dependencies
+pip install -r requirements.txt
+```
+
+### 5. Build the Project
+
+Compile your project with `colcon`.
+
+```bash
+# Build the project
+colcon build
+
+# Source the workspace
+source install/setup.bash
+```
+
+### 6. Launch the Drone Controller
+
+To launch the project, use the following command:
+
+```bash
+# Launch the project
+ros2 launch drone_control tello_control_launch.py
+```
 
 ### QR Code Triggered Behaviors
 
@@ -161,17 +229,7 @@ The following QR codes are available to trigger different scenarios:
   
 ![img](/images/red_block.png)
 
-
-- **Programming Behaviors**
-
-
-### Follower Mode
-
-
-### Monitoring Mode
-
-
-## Safety Precautions
+## ⚠️Safety Precautions
 
 - **Operational Safety**
   - Please fly in a safe, open area away from obstacles and people.
@@ -179,3 +237,12 @@ The following QR codes are available to trigger different scenarios:
 
 - **Battery Management**
   - Ensure the drone’s battery is fully charged before each session.
+
+
+Here’s the English translation for the "A améliorer" section:
+
+## To Improve
+
+Switching from *Monitoring* mode to *Travelling* mode does not work correctly, as the drone continues to rotate on itself. However, *Travelling* mode works well when activated independently. You can see it in action in the following video.
+
+![Travelling mode](images/mode_travelling.mp4)
