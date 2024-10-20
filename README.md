@@ -245,4 +245,4 @@ Here’s the English translation for the "A améliorer" section:
 
 Switching from *Monitoring* mode to *Travelling* mode does not work correctly, as the drone continues to rotate on itself. However, *Travelling* mode works well when activated independently. You can see it in action in the following video.
 
-![Travelling mode](images/mode_travelling.mp4)
+![Travelling mode](/images/mode_travelling.mp4)
