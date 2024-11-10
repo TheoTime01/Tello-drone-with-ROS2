@@ -7,7 +7,7 @@
 ## Authors
 
 - [Théotime PERRICHET](https://github.com/TheoTime01)
-- Tom RECHE
+- [Tom RECHE](https://github.com/TomRecheEln)
 - [Arnaud SIBENALER](https://github.com/ArnaudS-CPE)
 
 ## Table of Contents
